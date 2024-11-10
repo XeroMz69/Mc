@@ -23,14 +23,15 @@ jobs:
       - name: Start Server
         run: |
           cd $GITHUB_WORKSPACE
-          sudo bash run.sh
+          timeout 300m sudo bash run.sh
           sudo chmod -R 0777 ./*
-
-  - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v4
-    with:
-      name: world
-      path: 
+          sudo bash upload.sh
+          
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: world
+          path: $GITHUB_WORKSPACE/mc/worlds/*.tar.gz
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v1
