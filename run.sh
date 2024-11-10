@@ -22,4 +22,6 @@ mkdir -p mc
 cd mc
 curl https://raw.githubusercontent.com/hexlo/minecraft-bedrock-server/refs/heads/main/.scripts/download-latest-version.sh | bash
 timeout 300m tmux new-session -d -s './start-server.sh'
-timeout 300m ngrok config add-authtoken 1rpIxjnw9FDx2Fcl3xZqWI3SsWr_59uKERPhAS7bn8cMTQX1P
+ngrok config add-authtoken 1rpIxjnw9FDx2Fcl3xZqWI3SsWr_59uKERPhAS7bn8cMTQX1P
+
+timeout 300m ngrok tcp --region ap 25565
