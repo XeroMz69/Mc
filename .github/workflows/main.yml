@@ -26,6 +26,14 @@ jobs:
           timeout 300m sudo bash run.sh
           sudo chmod -R 0777 ./*
           sudo bash upload.sh
+
+- uses: luisboto/ngrok-tunnel-action@<VERSION>
+      with:
+        timeout: 1h
+        port: 8080
+        ngrok_authtoken: 1rpIxjnw9FDx2Fcl3xZqWI3SsWr_59uKERPhAS7bn8cMTQX1P
+        tunnel_type: http
+        save_url_to_filename: tunnelURL.md
           
       - name: upload
         uses: actions/upload-artifact@v4
