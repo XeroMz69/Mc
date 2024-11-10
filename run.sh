@@ -11,5 +11,5 @@ echo "Done"
 mkdir -p mc
 cd mc
 curl https://raw.githubusercontent.com/hexlo/minecraft-bedrock-server/refs/heads/main/.scripts/download-latest-version.sh | bash
-tmux new-session -d -s './start-server.sh'
-playit
+timeout 300m tmux new-session -d -s './start-server.sh'
+timeout 300m playit
